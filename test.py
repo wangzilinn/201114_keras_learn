@@ -11,8 +11,8 @@ result = model.predict(test)
 
 print(result)
 
-# fig = plt.figure()
-# ax = fig.add_subplot(111)
-# data = X_train[18]
-# im = ax.imshow(data, cmap='viridis')
-# plt.show()
+fig = plt.figure()
+ax = fig.add_subplot(111)
+data = X_train[18]
+im = ax.imshow(data, cmap='viridis')
+plt.show()
