@@ -5,6 +5,8 @@ from keras.optimizers import RMSprop
 from keras.utils import np_utils
 from keras.datasets import mnist
 
+
+
 np.random.seed(1337)
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
@@ -36,8 +38,13 @@ print('\nTesting ------------')
 # Evaluate the model with the metrics we defined earlier
 loss, accuracy = model.evaluate(X_test, y_test)
 
+# model.save('h5/classifier.h5') #用于保存模型
+
+
 print('test loss: ', loss)
 print('test accuracy: ', accuracy)
 
-
+test = X_train[18].reshape(1, -1)
+show = model.predict(test)
+print(show)
 
