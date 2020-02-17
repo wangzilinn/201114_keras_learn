@@ -14,4 +14,10 @@ LR = 0.006
 
 def get_batch():
     global BATCH_START, TIME_STEPS
-    xs = np.arange(BATCH_START, BATCH_SIZE * BATCH_START).reshape((BATCH_SIZE, TIME_STEPS)) / (10 * np.pi)
+    #
+    xs = np.arange(BATCH_START, BATCH_START + BATCH_SIZE * TIME_STEPS).reshape((BATCH_SIZE, TIME_STEPS)) / (10 * np.pi)  # BATCH_SIZE行, TIME_SREPS列
+    print(xs)
+
+# for i in range(5):
+get_batch()
+
