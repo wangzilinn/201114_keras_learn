@@ -4,12 +4,12 @@ from keras.layers import SimpleRNN, Dense, Activation
 from keras.optimizers import Adam
 from keras.utils import np_utils
 
-TIME_STEPS = 28
-INPUT_SIZE = 28
+TIME_STEPS = 28  # 读取多长时间间隔, 读取28个时间点
+INPUT_SIZE = 28  # 每次读取多少
 BATCH_SIZE = 50
 BATCH_INDEX = 0
 OUTPUT_SIZE = 10
-CELL_SIZE = 50
+CELL_SIZE = 50  # 隐藏层的大小
 LR = 0.001
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -32,7 +32,6 @@ model.add(SimpleRNN(
     output_dim=CELL_SIZE,
     unroll=True
 ))
-
 model.add(Dense(OUTPUT_SIZE))
 model.add(Activation('softmax'))
 
@@ -54,4 +53,10 @@ for step in range(4001):
     if step % 500 == 0:
         cost, accuracy = model.evaluate(X_test, y_test, batch_size=y_test.shape[0], verbose=False)
         print("test cost:", cost, "test accuracy: ", accuracy)
+        result = model.predict(X_train[:1])
+        print(result)
+
+# result = model.predict(X_test[:1])
+# print(result)
+# model.save("h5/RNN_classifier.h5")
 
