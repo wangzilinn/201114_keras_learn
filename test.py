@@ -32,7 +32,7 @@ model = load_model("h5/LSTM.h5")
 
 for step in range(1):
     X_batch, Y_batch, xs = get_batch()
-    print(X_batch[:1, :, :].shape)
+    print(X_batch[:1, :, :])
     pred = model.predict(X_batch[:1, :, :])
     print(pred.flatten())
     plt.plot(xs[0, :], Y_batch[0].flatten(), 'r', xs[0, :], pred.flatten()[:TIME_STEPS], 'b--')
