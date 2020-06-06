@@ -38,7 +38,7 @@ print('\nTesting ------------')
 # Evaluate the model with the metrics we defined earlier
 loss, accuracy = model.evaluate(X_test, y_test)
 
-# model.save('h5/classifier.h5') #用于保存模型
+# model.save('h5/classifier.h5')  # 用于保存模型
 
 
 print('test loss: ', loss)
